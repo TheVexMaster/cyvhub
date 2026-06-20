@@ -9,39 +9,16 @@
     content="CYV Hub is a clean access page where visitors watch a sponsor spot, then copy their unlock code."
   >
   <link rel="stylesheet" href="styles.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7413238266637326"
-     crossorigin="anonymous"></script>
-  <script src="ads-config.js"></script>
-  <script src="ads.js" defer></script>
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
 
-  <aside class="ad-rail ad-rail--desktop" aria-label="Advertisement">
-    <div class="ad-slot ad-slot--desktop" data-slot="side-desktop">
-      <div class="ad-slot__frame ad-slot__frame--160x600">
-        <div class="ad-slot__content"></div>
-      </div>
-    </div>
-  </aside>
-
   <main class="page">
-    <div class="ad-slot ad-slot--top ad-slot--desktop" data-slot="top-desktop" aria-label="Advertisement">
-      <div class="ad-slot__frame ad-slot__frame--728x90">
-        <div class="ad-slot__content"></div>
-      </div>
-    </div>
-
-    <div class="ad-slot ad-slot--top ad-slot--mobile" data-slot="top-mobile" aria-label="Advertisement">
-      <div class="ad-slot__frame ad-slot__frame--320x50">
-        <div class="ad-slot__content"></div>
-      </div>
-    </div>
     <section class="hero panel">
       <p class="eyebrow">CYV Hub Access Portal</p>
       <h1>Get your code in one clean step.</h1>
       <p class="hero-copy">
-        Tap the button, watch the sponsor panel, then copy your access key when it unlocks.
+        Tap the button, wait for the unlock, then copy your access key when it's ready.
       </p>
 
       <div class="hero-actions">
@@ -57,7 +34,7 @@
         </div>
         <div>
           <span class="metric-label">Unlock flow</span>
-          <strong>Watch ad then copy</strong>
+          <strong>Timed unlock then copy</strong>
         </div>
         <div>
           <span class="metric-label">Status</span>
@@ -69,26 +46,14 @@
     <section class="panel gate" id="ad-gate">
       <div class="section-head">
         <p class="eyebrow">Step 1</p>
-        <h2>Watch the sponsored spot.</h2>
+        <h2>Complete the unlock step.</h2>
       </div>
 
       <div class="ad-shell">
-        <div class="ad-badge">Sponsored placement</div>
+        <div class="ad-badge">Unlock step</div>
         <p class="ad-shell-copy">
-          Watch the ad below to unlock your access key.
+          This section is now just a simple unlock step.
         </p>
-
-        <div class="ad-slot ad-slot--main ad-slot--desktop" data-slot="main-desktop" aria-label="Advertisement">
-          <div class="ad-slot__frame ad-slot__frame--336x280">
-            <div class="ad-slot__content"></div>
-          </div>
-        </div>
-
-        <div class="ad-slot ad-slot--main ad-slot--mobile" data-slot="main-mobile" aria-label="Advertisement">
-          <div class="ad-slot__frame ad-slot__frame--320x100">
-            <div class="ad-slot__content"></div>
-          </div>
-        </div>
 
         <div class="progress-wrap" aria-label="Ad progress">
           <div class="progress-track">
@@ -113,7 +78,7 @@
       <div class="key-card">
         <span class="metric-label">Access key</span>
         <strong id="access-code">CYV-LOCK-0000</strong>
-        <p id="preview-code">Complete the ad to reveal your code.</p>
+        <p id="preview-code">Complete the unlock step to reveal your code.</p>
       </div>
 
       <div class="key-actions">
@@ -121,27 +86,7 @@
         <button class="button secondary" id="generate-code" type="button" disabled>Generate New Key</button>
       </div>
     </section>
-
-    <div class="ad-slot ad-slot--bottom ad-slot--desktop" data-slot="bottom-desktop" aria-label="Advertisement">
-      <div class="ad-slot__frame ad-slot__frame--728x90">
-        <div class="ad-slot__content"></div>
-      </div>
-    </div>
-
-    <div class="ad-slot ad-slot--bottom ad-slot--mobile" data-slot="bottom-mobile" aria-label="Advertisement">
-      <div class="ad-slot__frame ad-slot__frame--300x250">
-        <div class="ad-slot__content"></div>
-      </div>
-    </div>
   </main>
-
-  <div class="ad-sticky ad-sticky--mobile" aria-label="Advertisement">
-    <div class="ad-slot ad-slot--mobile" data-slot="sticky-mobile">
-      <div class="ad-slot__frame ad-slot__frame--320x50">
-        <div class="ad-slot__content"></div>
-      </div>
-    </div>
-  </div>
 
   <script src="app.js"></script>
 </body>
