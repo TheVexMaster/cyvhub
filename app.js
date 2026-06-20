@@ -16,6 +16,8 @@ const adDuration = 60;
 let timerId = null;
 let timeLeft = adDuration;
 let unlocked = false;
+let flowStarted = false;
+let isPaused = false;
 
 function generateKey() {
   const segments = Array.from({ length: 3 }, () => {
@@ -44,17 +46,61 @@ function setLockedState(isLocked) {
   heroStatus.textContent = isLocked ? "Locked" : "Ready";
 }
 
-function resetAdFlow() {
+function updateTimerUI(statusText) {
+  const progress = ((adDuration - timeLeft) / adDuration) * 100;
+  adProgress.style.width = `${Math.max(0, Math.min(100, progress))}%`;
+  adStatus.textContent = statusText;
+  adTime.textContent = `${Math.max(0, timeLeft)}s`;
+}
+
+function stopTimer() {
   if (timerId) {
     window.clearInterval(timerId);
     timerId = null;
   }
+}
+
+function pauseAdTimer(reason) {
+  if (!timerId || unlocked || timeLeft <= 0) {
+    return;
+  }
+
+  isPaused = true;
+  stopTimer();
+  adStatus.textContent = reason;
+  heroStatus.textContent = "Paused";
+}
+
+function resumeAdTimer() {
+  if (!flowStarted || unlocked || timeLeft <= 0 || timerId || !isPaused) {
+    return;
+  }
+
+  isPaused = false;
+  adStatus.textContent = "Watching ad...";
+  heroStatus.textContent = "Watching ad";
+
+  timerId = window.setInterval(() => {
+    timeLeft -= 1;
+    updateTimerUI(timeLeft > 0 ? "Watching ad..." : "Ad finished");
+
+    if (timeLeft <= 0) {
+      stopTimer();
+      completeAdButton.disabled = false;
+      completeAdButton.textContent = "Unlock key";
+      heroStatus.textContent = "Ready";
+    }
+  }, 1000);
+}
+
+function resetAdFlow() {
+  stopTimer();
 
   unlocked = false;
+  flowStarted = false;
+  isPaused = false;
   timeLeft = adDuration;
-  adProgress.style.width = "0%";
-  adStatus.textContent = "Ready to start";
-  adTime.textContent = `${adDuration}s`;
+  updateTimerUI("Ready to start");
   completeAdButton.disabled = true;
   completeAdButton.textContent = "Finish watching";
   setLockedState(true);
@@ -64,10 +110,8 @@ function resetAdFlow() {
 
 function unlockCode() {
   unlocked = true;
-  if (timerId) {
-    window.clearInterval(timerId);
-    timerId = null;
-  }
+  stopTimer();
+  isPaused = false;
 
   const code = generateKey();
   setCode(code);
@@ -85,21 +129,18 @@ function startAdTimer() {
     return;
   }
 
+  flowStarted = true;
+  isPaused = false;
   adStatus.textContent = "Watching ad...";
   completeAdButton.disabled = true;
   heroStatus.textContent = "Watching ad";
 
   timerId = window.setInterval(() => {
     timeLeft -= 1;
-
-    const progress = ((adDuration - timeLeft) / adDuration) * 100;
-    adProgress.style.width = `${progress}%`;
-    adStatus.textContent = timeLeft > 0 ? "Watching ad..." : "Ad finished";
-    adTime.textContent = timeLeft > 0 ? `${timeLeft}s` : "0s";
+    updateTimerUI(timeLeft > 0 ? "Watching ad..." : "Ad finished");
 
     if (timeLeft <= 0) {
-      window.clearInterval(timerId);
-      timerId = null;
+      stopTimer();
       completeAdButton.disabled = false;
       completeAdButton.textContent = "Unlock key";
     }
@@ -109,6 +150,23 @@ function startAdTimer() {
 startFlowButton.addEventListener("click", () => {
   document.getElementById("ad-gate").scrollIntoView({ behavior: "smooth", block: "start" });
   startAdTimer();
+});
+
+window.addEventListener("blur", () => {
+  pauseAdTimer("Paused while page is not active");
+});
+
+window.addEventListener("focus", () => {
+  resumeAdTimer();
+});
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    pauseAdTimer("Paused while page is hidden");
+    return;
+  }
+
+  resumeAdTimer();
 });
 
 completeAdButton.addEventListener("click", () => {
