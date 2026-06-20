@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYV Hub | Get Your Code</title>
+  <meta
+    name="description"
+    content="CYV Hub is a clean access page where visitors watch a sponsor spot, then copy their unlock code."
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-orb orb-one" aria-hidden="true"></div>
+  <div class="bg-orb orb-two" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main class="page">
+    <section class="hero panel">
+      <p class="eyebrow">CYV Hub Access Portal</p>
+      <h1>Get your code in one clean step.</h1>
+      <p class="hero-copy">
+        Tap the button, watch the sponsor panel, then copy your access key when it unlocks.
+      </p>
+
+      <div class="hero-actions">
+        <button class="button button-giant primary" id="start-flow" type="button">Get Code</button>
+        <a class="button secondary" href="https://discord.gg/WmVFnJAhVs" target="_blank" rel="noopener noreferrer">Support</a>
+        <a class="button secondary" href="#ad-gate">See how it works</a>
+      </div>
+
+      <div class="hero-metrics" aria-label="Key details">
+        <div>
+          <span class="metric-label">Key format</span>
+          <strong>CYV-XXXX-XXXX-XXXX</strong>
+        </div>
+        <div>
+          <span class="metric-label">Unlock flow</span>
+          <strong>Watch ad then copy</strong>
+        </div>
+        <div>
+          <span class="metric-label">Status</span>
+          <strong id="hero-status">Locked</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel gate" id="ad-gate">
+      <div class="section-head">
+        <p class="eyebrow">Step 1</p>
+        <h2>Watch the sponsored spot.</h2>
+      </div>
+
+      <div class="ad-shell">
+        <div class="ad-badge">Sponsored placement</div>
+        <h3>Your ad renders here.</h3>
+        <p>
+          Replace this panel with a real ad unit, sponsor creative, or verification embed.
+        </p>
+
+        <div class="progress-wrap" aria-label="Ad progress">
+          <div class="progress-track">
+            <div class="progress-fill" id="ad-progress"></div>
+          </div>
+          <div class="progress-meta">
+            <span id="ad-status">Ready to start</span>
+            <span id="ad-time">15s</span>
+          </div>
+        </div>
+
+        <button class="button primary" id="complete-ad" type="button" disabled>Finish watching</button>
+      </div>
+    </section>
+
+    <section class="panel key-panel" id="key-panel">
+      <div class="section-head">
+        <p class="eyebrow">Step 2</p>
+        <h2>Your key is ready to copy.</h2>
+      </div>
+
+      <div class="key-card">
+        <span class="metric-label">Access key</span>
+        <strong id="access-code">CYV-LOCK-0000</strong>
+        <p id="preview-code">Complete the ad to reveal your code.</p>
+      </div>
+
+      <div class="key-actions">
+        <button class="button primary" id="copy-code" type="button" disabled>Copy Key</button>
+        <button class="button secondary" id="generate-code" type="button" disabled>Generate New Key</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
