@@ -9,13 +9,32 @@
     content="CYV Hub is a clean access page where visitors watch a sponsor spot, then copy their unlock code."
   >
   <link rel="stylesheet" href="styles.css">
+  <script src="ads-config.js"></script>
+  <script src="ads.js" defer></script>
 </head>
 <body>
-  <div class="bg-orb orb-one" aria-hidden="true"></div>
-  <div class="bg-orb orb-two" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
 
+  <aside class="ad-rail ad-rail--desktop" aria-label="Advertisement">
+    <div class="ad-slot ad-slot--desktop" data-slot="side-desktop">
+      <div class="ad-slot__frame ad-slot__frame--160x600">
+        <div class="ad-slot__content"></div>
+      </div>
+    </div>
+  </aside>
+
   <main class="page">
+    <div class="ad-slot ad-slot--top ad-slot--desktop" data-slot="top-desktop" aria-label="Advertisement">
+      <div class="ad-slot__frame ad-slot__frame--728x90">
+        <div class="ad-slot__content"></div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-slot--top ad-slot--mobile" data-slot="top-mobile" aria-label="Advertisement">
+      <div class="ad-slot__frame ad-slot__frame--320x50">
+        <div class="ad-slot__content"></div>
+      </div>
+    </div>
     <section class="hero panel">
       <p class="eyebrow">CYV Hub Access Portal</p>
       <h1>Get your code in one clean step.</h1>
@@ -53,10 +72,21 @@
 
       <div class="ad-shell">
         <div class="ad-badge">Sponsored placement</div>
-        <h3>Your ad renders here.</h3>
-        <p>
-          Replace this panel with a real ad unit, sponsor creative, or verification embed.
+        <p class="ad-shell-copy">
+          Watch the ad below to unlock your access key.
         </p>
+
+        <div class="ad-slot ad-slot--main ad-slot--desktop" data-slot="main-desktop" aria-label="Advertisement">
+          <div class="ad-slot__frame ad-slot__frame--336x280">
+            <div class="ad-slot__content"></div>
+          </div>
+        </div>
+
+        <div class="ad-slot ad-slot--main ad-slot--mobile" data-slot="main-mobile" aria-label="Advertisement">
+          <div class="ad-slot__frame ad-slot__frame--320x100">
+            <div class="ad-slot__content"></div>
+          </div>
+        </div>
 
         <div class="progress-wrap" aria-label="Ad progress">
           <div class="progress-track">
@@ -89,7 +119,27 @@
         <button class="button secondary" id="generate-code" type="button" disabled>Generate New Key</button>
       </div>
     </section>
+
+    <div class="ad-slot ad-slot--bottom ad-slot--desktop" data-slot="bottom-desktop" aria-label="Advertisement">
+      <div class="ad-slot__frame ad-slot__frame--728x90">
+        <div class="ad-slot__content"></div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-slot--bottom ad-slot--mobile" data-slot="bottom-mobile" aria-label="Advertisement">
+      <div class="ad-slot__frame ad-slot__frame--300x250">
+        <div class="ad-slot__content"></div>
+      </div>
+    </div>
   </main>
+
+  <div class="ad-sticky ad-sticky--mobile" aria-label="Advertisement">
+    <div class="ad-slot ad-slot--mobile" data-slot="sticky-mobile">
+      <div class="ad-slot__frame ad-slot__frame--320x50">
+        <div class="ad-slot__content"></div>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
