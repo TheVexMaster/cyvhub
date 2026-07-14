@@ -1,54 +1,54 @@
-const SLOT_SIZES = {
+﻿const SLOT_SIZES = {
   "top-desktop": {
     width: 728,
     height: 90,
-    label: "728 × 90 Leaderboard",
+    label: "728 x 90 Leaderboard",
     responsive: true,
     adFormat: "horizontal",
   },
   "top-mobile": {
     width: 320,
     height: 50,
-    label: "320 × 50 Mobile Banner",
+    label: "320 x 50 Mobile Banner",
     responsive: true,
     adFormat: "horizontal",
   },
   "main-desktop": {
     width: 336,
     height: 280,
-    label: "336 × 280 Large Rectangle",
+    label: "336 x 280 Large Rectangle",
     responsive: false,
   },
   "main-mobile": {
     width: 320,
     height: 100,
-    label: "320 × 100 Large Mobile Banner",
+    label: "320 x 100 Large Mobile Banner",
     responsive: true,
     adFormat: "horizontal",
   },
   "bottom-desktop": {
     width: 728,
     height: 90,
-    label: "728 × 90 Leaderboard",
+    label: "728 x 90 Leaderboard",
     responsive: true,
     adFormat: "horizontal",
   },
   "bottom-mobile": {
     width: 300,
     height: 250,
-    label: "300 × 250 Medium Rectangle",
+    label: "300 x 250 Medium Rectangle",
     responsive: false,
   },
   "side-desktop": {
     width: 160,
     height: 600,
-    label: "160 × 600 Wide Skyscraper",
+    label: "160 x 600 Wide Skyscraper",
     responsive: false,
   },
   "sticky-mobile": {
     width: 320,
     height: 50,
-    label: "320 × 50 Sticky Banner",
+    label: "320 x 50 Sticky Banner",
     responsive: true,
     adFormat: "horizontal",
   },
@@ -67,7 +67,7 @@ function createPlaceholder(slotId, size, message) {
   const placeholder = document.createElement("div");
   placeholder.className = "ad-slot__placeholder";
   placeholder.innerHTML = `
-    <span class="ad-slot__placeholder-label">AdSense</span>
+    <span class="ad-slot__placeholder-label">Advertisement</span>
     <strong>${size.label}</strong>
     <span class="ad-slot__placeholder-id">${slotId}</span>
     ${message ? `<p class="ad-slot__placeholder-note">${message}</p>` : ""}
@@ -125,7 +125,7 @@ function initAdSlot(slotElement) {
   if (!useAdSense) {
     const message =
       window.CYV_ADS.provider === "adsense" && !isAdSenseConfigured()
-        ? "Add your publisher ID and ad unit IDs in ads-config.js"
+        ? "Add your publisher ID and display ad unit IDs in ads-config.js"
         : "Ad unit not configured for this slot";
     content.appendChild(createPlaceholder(slotId, size, message));
   }

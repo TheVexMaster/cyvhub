@@ -1,93 +1,271 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CYV Hub | Get Your Code</title>
+  <title>CYV Hub Scripts | Script Library, Setup Notes, and Access Keys</title>
   <meta
     name="description"
-    content="CYV Hub is a clean access page where visitors watch a sponsor spot, then copy their unlock code."
+    content="CYV Hub Scripts publishes maintained script notes, setup guidance, safety checks, changelog details, and access key tools for supported CYV Hub sessions."
   >
+  <link rel="canonical" href="https://cyvhubscripts.dev/">
   <link rel="stylesheet" href="styles.css">
+  <script src="ads-config.js" defer></script>
+  <script src="ads.js" defer></script>
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
-
-  <main class="page">
-    <section class="hero panel">
-      <p class="eyebrow">CYV Hub Access Portal</p>
-      <h1>Get your code in one clean step.</h1>
-      <p class="hero-copy">
-        Tap the button, wait for the unlock, then copy your access key when it's ready.
-      </p>
-
-      <div class="hero-actions">
-        <button class="button button-giant primary" id="start-flow" type="button">Get Code</button>
-        <a class="button secondary" href="https://discord.gg/WmVFnJAhVs" target="_blank" rel="noopener noreferrer">Support</a>
-        <a class="button secondary" href="#ad-gate">See how it works</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary navigation">
+      <a class="brand" href="/" aria-label="CYV Hub Scripts home">
+        <span class="brand-mark">CYV</span>
+        <span>CYV Hub Scripts</span>
+      </a>
+      <div class="nav-links">
+        <a href="#library">Library</a>
+        <a href="#setup">Setup</a>
+        <a href="#safety">Safety</a>
+        <a href="#faq">FAQ</a>
       </div>
+      <a class="button secondary nav-button" href="https://discord.gg/WmVFnJAhVs" target="_blank" rel="noopener noreferrer">Discord</a>
+    </nav>
+  </header>
 
-      <div class="hero-metrics" aria-label="Key details">
-        <div>
-          <span class="metric-label">Key format</span>
-          <strong>CYV-XXXX-XXXX-XXXX</strong>
+  <main>
+    <section class="hero-section">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Community script notes and access tools</p>
+          <h1>CYV Hub Scripts</h1>
+          <p class="lead">
+            A maintained reference for CYV Hub script releases, setup notes, version changes, and safe-use checks. The page is written for users who need clear context before they run or update a script.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#library">Browse Scripts</a>
+            <a class="button secondary" href="#key-tool">Generate Key</a>
+          </div>
+          <ul class="trust-list" aria-label="Site highlights">
+            <li>Release notes and compatibility details</li>
+            <li>Setup guidance for supported sessions</li>
+            <li>Privacy and contact information included</li>
+          </ul>
         </div>
-        <div>
-          <span class="metric-label">Unlock flow</span>
-          <strong>Timed unlock then copy</strong>
+
+        <aside class="key-tool" id="key-tool" aria-labelledby="key-title">
+          <p class="tool-label">Access utility</p>
+          <h2 id="key-title">Generate a CYV access key</h2>
+          <p>
+            Create a temporary key for supported CYV Hub sessions. Keys are generated in your browser after a 10-second wait, and a new key can be generated every 10 minutes.
+          </p>
+          <div class="key-output" aria-live="polite">
+            <span>Current key</span>
+            <strong id="access-code">CYV-READY-0000</strong>
+          </div>
+          <div class="key-actions">
+            <button class="button primary" id="generate-code" type="button">Generate Key</button>
+            <button class="button secondary" id="copy-code" type="button" disabled>Copy Key</button>
+          </div>
+          <p class="tool-note" id="key-status" role="status">Generate a key when you are ready to start.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content-band" id="library">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Script library</p>
+          <h2>Current CYV Hub references</h2>
+          <p>
+            These entries describe what each maintained script is for, how it should be used, and what users should check before running it. Use only in experiences or sessions where scripts are allowed.
+          </p>
         </div>
-        <div>
-          <span class="metric-label">Status</span>
-          <strong id="hero-status">Locked</strong>
+
+        <div class="script-grid">
+          <article class="script-card">
+            <div class="card-meta">
+              <span class="status-pill stable">Stable</span>
+              <span>Version 2.4</span>
+            </div>
+            <h3>CYV Companion Loader</h3>
+            <p>
+              Central loader notes for CYV Hub sessions. The loader checks the current module label, confirms that the session matches a supported profile, and shows users whether a newer release note is available before they continue.
+            </p>
+            <ul>
+              <li>Best for users who need one maintained entry point.</li>
+              <li>Includes a visible version label and configuration reminder.</li>
+              <li>Should not be used in sessions where third-party scripts are not allowed.</li>
+            </ul>
+          </article>
+
+          <article class="script-card">
+            <div class="card-meta">
+              <span class="status-pill review">Review</span>
+              <span>Version 1.8</span>
+            </div>
+            <h3>Quest Route Helper</h3>
+            <p>
+              Planning notes for route-based tasks. The helper focuses on checklist visibility, route reminders, and repeatable setup steps instead of hidden automation.
+            </p>
+            <ul>
+              <li>Useful for organizing repeat runs and route practice.</li>
+              <li>Designed around visible prompts and user-controlled actions.</li>
+              <li>Review the changelog before using it after a major game update.</li>
+            </ul>
+          </article>
+
+          <article class="script-card">
+            <div class="card-meta">
+              <span class="status-pill stable">Stable</span>
+              <span>Version 1.3</span>
+            </div>
+            <h3>Config Backup Snippet</h3>
+            <p>
+              A small configuration pattern for saving safe local preferences such as theme, notification choice, and profile name. It is documented so users can understand what is stored before they run it.
+            </p>
+            <ul>
+              <li>Stores only local preference values.</li>
+              <li>Does not ask for passwords, tokens, cookies, or account data.</li>
+              <li>Can be reset by clearing local browser or client storage.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="panel gate" id="ad-gate">
-      <div class="section-head">
-        <p class="eyebrow">Step 1</p>
-        <h2>Complete the unlock step.</h2>
-      </div>
-
-      <div class="ad-shell">
-        <div class="ad-badge">Unlock step</div>
-        <p class="ad-shell-copy">
-          This section is now just a simple unlock step.
-        </p>
-
-        <div class="progress-wrap" aria-label="Ad progress">
-          <div class="progress-track">
-            <div class="progress-fill" id="ad-progress"></div>
-          </div>
-          <div class="progress-meta">
-            <span id="ad-status">Ready to start</span>
-            <span id="ad-time">15s</span>
-          </div>
+    <section class="content-band alt" id="setup">
+      <div class="wrap split-layout">
+        <div class="section-head">
+          <p class="eyebrow">Setup guide</p>
+          <h2>Before you run a script</h2>
+          <p>
+            A safe setup starts with understanding the source, the expected behavior, and the data the script touches. If a script asks for account credentials, private cookies, payment information, or unrelated permissions, stop and ask for support.
+          </p>
         </div>
 
-        <button class="button primary" id="complete-ad" type="button" disabled>Finish watching</button>
+        <div class="steps-list" aria-label="Setup checklist">
+          <article>
+            <span>01</span>
+            <h3>Confirm the session is supported</h3>
+            <p>Run scripts only where custom scripts are allowed by the experience owner, event host, or private server rules.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Check the version note</h3>
+            <p>Compare the visible version label with the latest library entry so you do not use outdated instructions after an update.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Keep personal data out</h3>
+            <p>CYV Hub notes do not require your password, session cookie, billing details, or recovery codes.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="panel key-panel" id="key-panel">
-      <div class="section-head">
-        <p class="eyebrow">Step 2</p>
-        <h2>Your key is ready to copy.</h2>
-      </div>
+    <section class="content-band" id="safety">
+      <div class="wrap">
+        <div class="section-head narrow">
+          <p class="eyebrow">Safety notes</p>
+          <h2>What CYV Hub considers safe content</h2>
+          <p>
+            This site is built around documentation, version notes, and user-controlled utilities. It does not host malware, credential collectors, payment bypass tools, or instructions for unauthorized account access.
+          </p>
+        </div>
 
-      <div class="key-card">
-        <span class="metric-label">Access key</span>
-        <strong id="access-code">CYV-LOCK-0000</strong>
-        <p id="preview-code">Complete the unlock step to reveal your code.</p>
+        <div class="info-grid">
+          <article>
+            <h3>Transparent behavior</h3>
+            <p>Script descriptions should explain the visible result, the supported environment, and the reason a user would run it.</p>
+          </article>
+          <article>
+            <h3>User control</h3>
+            <p>Utilities should keep the user in control and avoid hidden actions, forced redirects, fake alerts, or ad-dependent unlock timers.</p>
+          </article>
+          <article>
+            <h3>Clear support path</h3>
+            <p>Questions, outdated notes, and takedown requests can be sent through the Discord support link or the contact details below.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="key-actions">
-        <button class="button primary" id="copy-code" type="button" disabled>Copy Key</button>
-        <button class="button secondary" id="generate-code" type="button" disabled>Generate New Key</button>
+    <section class="content-band alt" id="updates">
+      <div class="wrap split-layout">
+        <div class="section-head">
+          <p class="eyebrow">Changelog</p>
+          <h2>Recent site updates</h2>
+          <p>
+            The changelog helps returning visitors understand what changed before they copy a new key or follow setup notes.
+          </p>
+        </div>
+
+        <ol class="timeline">
+          <li>
+            <time datetime="2026-07-09">July 2026</time>
+            <p>Reworked the site into a content-first script hub with setup notes, privacy information, and a browser-only key utility.</p>
+          </li>
+          <li>
+            <time datetime="2026-06-20">June 2026</time>
+            <p>Updated the library descriptions for loader, route helper, and configuration backup references.</p>
+          </li>
+          <li>
+            <time datetime="2026-05-28">May 2026</time>
+            <p>Added clearer safety language around supported sessions, local preferences, and personal data boundaries.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="content-band" id="faq">
+      <div class="wrap">
+        <div class="section-head narrow">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>Is the key locked behind advertising?</summary>
+            <p>No. The key utility is not locked behind an advertisement, alert screen, or navigation trap. A short 10-second wait and 10-minute key cooldown apply.</p>
+          </details>
+          <details>
+            <summary>Where is my generated key stored?</summary>
+            <p>The key is generated in your browser for the current visit. CYV Hub does not receive the generated value from this static page.</p>
+          </details>
+          <details>
+            <summary>Can I request a correction or removal?</summary>
+            <p>Yes. Use the Discord support link or the contact details in the footer for outdated notes, attribution issues, or removal requests.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact">
+      <div class="wrap contact-layout">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Need help with CYV Hub?</h2>
+          <p>
+            For setup questions, site corrections, partnership requests, or content concerns, contact the CYV Hub team through Discord.
+          </p>
+        </div>
+        <a class="button primary" href="https://discord.gg/WmVFnJAhVs" target="_blank" rel="noopener noreferrer">Open Discord</a>
       </div>
     </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="wrap footer-layout">
+      <p>&copy; 2026 CYV Hub Scripts. Published for supported CYV Hub sessions.</p>
+      <div>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/ads.txt">ads.txt</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="app.js"></script>
 </body>
 </html>
+
+
